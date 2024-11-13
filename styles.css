@@ -26,3 +26,7 @@ body {
 .question-box {
     text-align: center;
 }
+
+.answer-button {
+    margin: 5px;
+}
