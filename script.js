@@ -37,7 +37,7 @@ function showQuestion(question) {
     ).join('');
     
     // Insert buttons into the overlay
-    questionOverlay.querySelector('.question-box').innerHTML += buttonsHtml;
+    questionOverlay.querySelector('.question-box').innerHTML = buttonsHtml; // Clear previous buttons
     
     questionOverlay.classList.remove('hidden');
     
@@ -80,9 +80,9 @@ video.addEventListener('timeupdate', checkTime);
 video.addEventListener('seeking', (event) => {
     const currentTime = Math.floor(video.currentTime);
     
-    // If seeking past the point where the question appears, reset to last known time
-    if (currentTime > questions[0].time && !questionShown) {
-        video.currentTime = questions[0].time; // Reset to question time
-        alert("You cannot skip past this point until you answer the question.");
-    }
+   // If seeking past the point where the question appears, reset to last known time
+   if (currentTime > questions[0].time && !questionShown) {
+       video.currentTime = questions[0].time; // Reset to question time
+       alert("You cannot skip past this point until you answer the question.");
+   }
 });
